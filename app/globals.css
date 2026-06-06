@@ -1,0 +1,86 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --background: #faf6f1;
+  --foreground: #1a1208;
+  --accent: #b5763a;
+  --accent-light: #d4955a;
+  --border: #e8ddd0;
+  --tag-bg: #f0e6d8;
+  --tag-text: #7a5533;
+  --muted: #9a8070;
+  --card-bg: #ffffff;
+  --header-bg: #f5ede2;
+}
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+  font-family: var(--font-sans), "Hiragino Kaku Gothic ProN", sans-serif;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* 見出しにだけセリフ体を使う */
+h1, h2, h3 {
+  font-family: var(--font-serif), "Hiragino Mincho ProN", serif;
+}
+
+/* スクロールバー */
+::-webkit-scrollbar { width: 5px; }
+::-webkit-scrollbar-track { background: var(--background); }
+::-webkit-scrollbar-thumb { background: var(--border); border-radius: 4px; }
+
+/* カードホバー：左ボーダーアニメーション */
+.card-hover {
+  position: relative;
+  overflow: hidden;
+}
+.card-hover::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  width: 3px;
+  background: var(--accent);
+  transform: scaleY(0);
+  transform-origin: bottom;
+  transition: transform 0.3s ease;
+  border-radius: 0 2px 2px 0;
+}
+.card-hover:hover::before {
+  transform: scaleY(1);
+}
+
+/* タイトル下線アニメーション */
+.title-underline {
+  background-image: linear-gradient(var(--accent), var(--accent));
+  background-size: 0% 1.5px;
+  background-repeat: no-repeat;
+  background-position: left bottom;
+  transition: background-size 0.3s ease;
+  padding-bottom: 1px;
+}
+.title-underline:hover {
+  background-size: 100% 1.5px;
+}
+
+/* 区切り装飾線 */
+.divider-ornament {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  color: var(--border);
+}
+.divider-ornament::before,
+.divider-ornament::after {
+  content: "";
+  flex: 1;
+  height: 1px;
+  background: linear-gradient(to right, transparent, var(--border));
+}
+.divider-ornament::after {
+  background: linear-gradient(to left, transparent, var(--border));
+}
