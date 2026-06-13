@@ -20,8 +20,8 @@ export default async function Home({ searchParams }: { searchParams: Promise<{ q
     <main>
       {/* ヒーローセクション */}
       <section
+        className="hero-bg"
         style={{
-          background: "linear-gradient(160deg, #ede0ce 0%, #faf6f1 45%, #fdf4ea 100%)",
           borderBottom: "1px solid var(--border)",
           position: "relative",
           overflow: "hidden",

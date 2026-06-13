@@ -112,6 +112,14 @@ h1, h2, h3 {
   box-shadow: 0 0 8px var(--glow);
 }
 
+/* ヒーロー背景 */
+.hero-bg {
+  background: linear-gradient(160deg, #ede0ce 0%, #faf6f1 45%, #fdf4ea 100%);
+}
+[data-theme="dark"] .hero-bg {
+  background: linear-gradient(160deg, #1a1410 0%, #0f0d0a 45%, #120f0c 100%);
+}
+
 /* ヒーローの浮遊アニメーション */
 @keyframes float-slow {
   0%, 100% { transform: translateY(0) rotate(0deg); opacity: 0.4; }
