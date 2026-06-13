@@ -7,6 +7,7 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 ```bash
 npm run dev     # 開発サーバー起動 (localhost:3000)
 npm run build   # 本番ビルド
+npm start       # 本番ビルド後のサーバー起動
 npm run lint    # ESLint 実行
 ```
 

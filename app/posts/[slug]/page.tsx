@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { getPost, getAllPosts, getPrevNextPosts } from "@/lib/posts";
 import TableOfContents from "@/app/components/TableOfContents";
+import ReadingProgress from "@/app/components/ReadingProgress";
 
 export async function generateStaticParams() {
   return getAllPosts().map((post) => ({ slug: post.slug }));
@@ -36,6 +37,7 @@ export default async function PostPage({ params }: { params: Promise<{ slug: str
 
   return (
     <main className="max-w-3xl mx-auto px-6 py-16">
+      <ReadingProgress />
 
       <Link
         href="/"
@@ -99,11 +101,11 @@ export default async function PostPage({ params }: { params: Promise<{ slug: str
         {prev ? (
           <Link
             href={`/posts/${prev.slug}`}
-            className="group rounded-xl p-4 transition-all hover:shadow-md"
+            className="group rounded-xl p-4 card-glow"
             style={{ background: "var(--card-bg)", border: "1px solid var(--border)" }}
           >
             <p className="text-xs mb-2 tracking-widest" style={{ color: "var(--muted)" }}>← 前の記事</p>
-            <p className="text-sm font-semibold group-hover:opacity-70 transition-opacity" style={{ color: "var(--foreground)", fontFamily: "var(--font-serif)" }}>
+            <p className="text-sm font-semibold" style={{ color: "var(--foreground)", fontFamily: "var(--font-serif)" }}>
               {prev.title}
             </p>
           </Link>
@@ -112,11 +114,11 @@ export default async function PostPage({ params }: { params: Promise<{ slug: str
         {next ? (
           <Link
             href={`/posts/${next.slug}`}
-            className="group rounded-xl p-4 text-right transition-all hover:shadow-md"
+            className="group rounded-xl p-4 text-right card-glow"
             style={{ background: "var(--card-bg)", border: "1px solid var(--border)" }}
           >
             <p className="text-xs mb-2 tracking-widest" style={{ color: "var(--muted)" }}>次の記事 →</p>
-            <p className="text-sm font-semibold group-hover:opacity-70 transition-opacity" style={{ color: "var(--foreground)", fontFamily: "var(--font-serif)" }}>
+            <p className="text-sm font-semibold" style={{ color: "var(--foreground)", fontFamily: "var(--font-serif)" }}>
               {next.title}
             </p>
           </Link>

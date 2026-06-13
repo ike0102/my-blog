@@ -34,7 +34,7 @@ export default async function TagPage({ params }: { params: Promise<{ tag: strin
           <li key={post.slug}>
             <Link href={`/posts/${post.slug}`} className="block group">
               <article
-                className="rounded-2xl p-6 transition-all duration-200 group-hover:shadow-lg group-hover:-translate-y-0.5"
+                className="rounded-2xl p-6 card-glow"
                 style={{ background: "var(--card-bg)", border: "1px solid var(--border)" }}
               >
                 <div className="flex items-start justify-between gap-4">

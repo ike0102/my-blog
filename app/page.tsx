@@ -21,23 +21,70 @@ export default async function Home({ searchParams }: { searchParams: Promise<{ q
       {/* ヒーローセクション */}
       <section
         style={{
-          background: "linear-gradient(160deg, #f0e4d0 0%, #faf6f1 45%, #fdf4ea 100%)",
+          background: "linear-gradient(160deg, #ede0ce 0%, #faf6f1 45%, #fdf4ea 100%)",
           borderBottom: "1px solid var(--border)",
           position: "relative",
           overflow: "hidden",
         }}
       >
+        {/* 浮遊Orb */}
+        <div
+          aria-hidden
+          className="hero-orb-1"
+          style={{
+            position: "absolute",
+            right: "8%",
+            top: "20%",
+            width: "clamp(120px, 20vw, 240px)",
+            height: "clamp(120px, 20vw, 240px)",
+            borderRadius: "50%",
+            background: "radial-gradient(circle at 40% 40%, rgba(181,118,58,0.18), transparent 70%)",
+            filter: "blur(2px)",
+            pointerEvents: "none",
+          }}
+        />
+        <div
+          aria-hidden
+          className="hero-orb-2"
+          style={{
+            position: "absolute",
+            right: "20%",
+            bottom: "10%",
+            width: "clamp(60px, 10vw, 120px)",
+            height: "clamp(60px, 10vw, 120px)",
+            borderRadius: "50%",
+            background: "radial-gradient(circle at 60% 60%, rgba(212,149,90,0.22), transparent 70%)",
+            filter: "blur(1px)",
+            pointerEvents: "none",
+          }}
+        />
+        <div
+          aria-hidden
+          className="hero-orb-3"
+          style={{
+            position: "absolute",
+            left: "5%",
+            bottom: "20%",
+            width: "clamp(40px, 6vw, 80px)",
+            height: "clamp(40px, 6vw, 80px)",
+            borderRadius: "50%",
+            background: "radial-gradient(circle at 50% 50%, rgba(181,118,58,0.14), transparent 70%)",
+            pointerEvents: "none",
+          }}
+        />
+
+        {/* 大文字の背景テキスト */}
         <div
           aria-hidden
           style={{
             position: "absolute",
-            right: "-20px",
+            right: "-10px",
             top: "50%",
             transform: "translateY(-50%)",
             fontSize: "clamp(100px, 18vw, 220px)",
             fontFamily: "var(--font-serif)",
             fontWeight: 700,
-            color: "rgba(181,118,58,0.06)",
+            color: "rgba(181,118,58,0.05)",
             lineHeight: 1,
             userSelect: "none",
             whiteSpace: "nowrap",
@@ -106,7 +153,7 @@ export default async function Home({ searchParams }: { searchParams: Promise<{ q
                 <FadeIn delay={i * 80}>
                   <Link href={`/posts/${post.slug}`} className="block group card-hover">
                     <article
-                      className="rounded-xl p-6 transition-all duration-300 group-hover:shadow-md"
+                      className="rounded-xl p-6 card-glow"
                       style={{ background: "var(--card-bg)", border: "1px solid var(--border)" }}
                     >
                       <div className="flex items-start justify-between gap-4">
@@ -122,7 +169,12 @@ export default async function Home({ searchParams }: { searchParams: Promise<{ q
                           </p>
                           <div className="flex items-center gap-3 mb-3">
                             <span className="text-xs tracking-wider" style={{ color: "var(--muted)" }}>{post.date}</span>
-                            <span className="text-xs" style={{ color: "var(--accent)" }}>約{post.readingTime}分</span>
+                            <span
+                              className="text-xs px-2 py-0.5 rounded-full"
+                              style={{ background: "rgba(181,118,58,0.1)", color: "var(--accent)" }}
+                            >
+                              約{post.readingTime}分
+                            </span>
                           </div>
                           <div className="flex flex-wrap gap-2">
                             {post.tags.map((tag) => (
@@ -137,8 +189,8 @@ export default async function Home({ searchParams }: { searchParams: Promise<{ q
                           </div>
                         </div>
                         <span
-                          className="text-lg mt-1 shrink-0 group-hover:translate-x-1 transition-transform"
-                          style={{ color: "var(--accent)", opacity: 0.5 }}
+                          className="text-base mt-1 shrink-0 group-hover:translate-x-1.5 transition-transform duration-300"
+                          style={{ color: "var(--accent)" }}
                         >
                           →
                         </span>
@@ -160,12 +212,12 @@ export default async function Home({ searchParams }: { searchParams: Promise<{ q
         {/* プロフィールカード */}
         <FadeIn delay={250}>
           <div
-            className="mt-10 rounded-2xl p-6 flex items-center gap-6"
+            className="mt-10 rounded-2xl p-6 flex items-center gap-6 card-glow"
             style={{ background: "var(--card-bg)", border: "1px solid var(--border)" }}
           >
             <div
               className="w-14 h-14 rounded-full shrink-0 flex items-center justify-center text-2xl font-bold"
-              style={{ background: "var(--tag-bg)", color: "var(--accent)", fontFamily: "var(--font-serif)" }}
+              style={{ background: "linear-gradient(135deg, var(--accent), var(--accent-light))", color: "#fff", fontFamily: "var(--font-serif)" }}
             >
               ア
             </div>
