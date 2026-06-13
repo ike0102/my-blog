@@ -41,7 +41,7 @@ export default function SearchBar({ defaultValue }: { defaultValue?: string }) {
         placeholder="記事を検索..."
         defaultValue={defaultValue}
         onChange={handleChange}
-        className="w-full pl-9 pr-4 py-2 text-sm rounded-xl outline-none transition-all"
+        className="search-input w-full pl-9 pr-4 py-2.5 text-sm rounded-xl outline-none"
         style={{
           background: "var(--card-bg)",
           border: "1px solid var(--border)",
