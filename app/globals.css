@@ -108,23 +108,6 @@ h1, h2, h3 {
 .card-hover {
   position: relative;
 }
-.card-hover::before {
-  content: "";
-  position: absolute;
-  left: 0;
-  top: 0;
-  bottom: 0;
-  width: 3px;
-  background: linear-gradient(to bottom, var(--accent), var(--accent-light));
-  transform: scaleY(0);
-  transform-origin: bottom;
-  transition: transform 0.35s cubic-bezier(0.4, 0, 0.2, 1);
-  border-radius: 0 2px 2px 0;
-  z-index: 1;
-}
-.card-hover:hover::before {
-  transform: scaleY(1);
-}
 
 .card-glow {
   transition:
